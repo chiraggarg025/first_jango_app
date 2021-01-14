@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static "css/style.css"%}"
-    <title>Spring Page</title>
+    <link rel="stylesheet" href="{% static "css/style.css"%}">
+    <title>Django Level two</title>
 </head>
+
 <body>
-    <h1>Hello ! this is beauty of nature</h1>
-    <img src="{% static "images/spring.webp" %}" alt="nothing loaded">
+    <h1>Hi welcome to django level 2!</h1>
+    <h2>Here are your tags:</h2>
+
+    <div class="djangtwo">
+        {%if access_records%}
+        <table>
+            <thead>
+                <th>Site name</th>
+                <th>Date Accessed</th>
+            </thead>
+            {% for acc in access_records%}
+            <tr>
+                <td>
+                    {{acc.name}}
+                </td>
+                <td>
+                    {{acc.date}}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No Access Records found</p>
+        {% endif %}
+
+
+
+    </div>
 </body>
+
 </html>
